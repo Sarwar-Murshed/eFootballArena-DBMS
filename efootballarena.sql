@@ -454,3 +454,553 @@ WHERE Player_ID = 3;
 UPDATE Player_Profile
 SET Performance_Rating = 8.8
 WHERE Player_ID = 4;
+
+UPDATE Players
+SET Gamer_Tag = 'Sarwar7',
+    Real_Name = 'Sarwar Murshed'
+WHERE Player_ID = 1;
+
+UPDATE Players
+SET Gamer_Tag = 'Shafin10',
+    Real_Name = 'Shahariar Shafin'
+WHERE Player_ID = 2;
+
+UPDATE Players
+SET Gamer_Tag = 'Farha8',
+    Real_Name = 'Farha Ahmed'
+WHERE Player_ID = 3;
+
+UPDATE Players
+SET Gamer_Tag = 'Nolan2',
+    Real_Name = 'Christopher Nolan'
+WHERE Player_ID = 4;
+
+CREATE TABLE Football_Players (
+    Football_Player_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Player_Name VARCHAR(100) NOT NULL,
+    Position ENUM('GK','DF','MF','FW') NOT NULL,
+    Player_Type ENUM('Good','Bot') NOT NULL,
+    Overall_Rating DECIMAL(4,1),
+    Goals INT DEFAULT 0,
+    Assists INT DEFAULT 0,
+    Tackles INT DEFAULT 0,
+    Saves INT DEFAULT 0,
+    Matches_Played INT DEFAULT 0
+);
+
+INSERT INTO Football_Players
+(Player_Name, Position, Player_Type, Overall_Rating, Goals, Assists, Tackles, Saves, Matches_Played)
+VALUES
+
+-- Sarwar7's 15 players
+
+('Cristiano Ronaldo', 'FW', 'Good', 9.8, 35, 8, 5, 0, 20),
+('Kylian Mbappe', 'FW', 'Good', 9.6, 30, 10, 3, 0, 20),
+('Kevin De Bruyne', 'MF', 'Good', 9.4, 12, 18, 15, 0, 20),
+('Virgil van Dijk', 'DF', 'Good', 9.3, 4, 2, 35, 0, 20),
+('Thibaut Courtois', 'GK', 'Good', 9.2, 0, 0, 0, 42, 20),
+('khvicha kvaratskhelia', 'FW', 'Good', 9.2, 25, 12, 4, 0, 20),
+('Jude Bellingham', 'MF', 'Good', 9.1, 15, 10, 20, 0, 20),
+('Marcelo', 'DF', 'Good', 9.0, 2, 1, 32, 0, 20),
+('Alisson Becker', 'GK', 'Good', 9.0, 0, 0, 0, 38, 20),
+('Vinicius Jr', 'FW', 'Good', 9.1, 27, 14, 3, 0, 20),
+('Rodri', 'MF', 'Good', 9.2, 8, 12, 28, 0, 20),
+('Sergio Ramos', 'DF', 'Good', 8.8, 2, 1, 30, 0, 20),
+('Harry Kane', 'FW', 'Good', 9.3, 29, 9, 2, 0, 20),
+('Luka Modric', 'MF', 'Good', 8.9, 6, 15, 12, 0, 20),
+('Achraf Hakimi', 'DF', 'Good', 8.7, 5, 8, 24, 0, 20),
+
+-- Shafin10's 15 players
+
+('Lionel Messi', 'FW', 'Good', 9.7, 32, 20, 2, 0, 20),
+('Erling Haaland', 'FW', 'Good', 9.6, 38, 6, 2, 0, 20),
+('Pedri', 'MF', 'Good', 8.9, 7, 14, 13, 0, 20),
+('William Saliba', 'DF', 'Good', 9.0, 2, 1, 31, 0, 20),
+('Ederson', 'GK', 'Good', 8.9, 0, 0, 0, 36, 20),
+('Bukayo Saka', 'FW', 'Good', 9.0, 22, 13, 5, 0, 20),
+('Bernardo Silva', 'MF', 'Good', 9.0, 9, 16, 11, 0, 20),
+('Marquinhos', 'DF', 'Good', 8.8, 2, 2, 28, 0, 20),
+('Mike Maignan', 'GK', 'Good', 8.8, 0, 0, 0, 35, 20),
+('Son Heung-min', 'FW', 'Good', 9.0, 24, 11, 3, 0, 20),
+('Toni Kroos', 'MF', 'Good', 8.8, 5, 17, 10, 0, 20),
+('John Stones', 'DF', 'Good', 8.6, 3, 2, 25, 0, 20),
+('Robert Lewandowski', 'FW', 'Good', 9.2, 31, 7, 2, 0, 20),
+('Declan Rice', 'MF', 'Good', 8.9, 6, 10, 27, 0, 20),
+('Trent Alexander-Arnold', 'DF', 'Good', 8.7, 4, 13, 22, 0, 20),
+
+-- Farha8's 15 players
+
+('Neymar Jr', 'FW', 'Good', 9.4, 25, 18, 3, 0, 20),
+('Lautaro Martinez', 'FW', 'Good', 9.1, 28, 8, 2, 0, 20),
+('Martin Odegaard', 'MF', 'Good', 9.0, 10, 17, 12, 0, 20),
+('Antonio Rudiger', 'DF', 'Good', 8.8, 2, 1, 29, 0, 20),
+('Emiliano Martinez', 'GK', 'Good', 8.8, 0, 0, 0, 40, 20),
+('Raphinha', 'FW', 'Good', 8.8, 20, 14, 4, 0, 20),
+('Federico Valverde', 'MF', 'Good', 9.0, 8, 11, 25, 0, 20),
+('Ronald Araujo', 'DF', 'Good', 8.7, 2, 1, 33, 0, 20),
+('Gianluigi Donnarumma', 'GK', 'Good', 9.0, 0, 0, 0, 44, 20),
+('Ousmane Dembele', 'FW', 'Good', 8.9, 21, 15, 3, 0, 20),
+('Frenkie de Jong', 'MF', 'Good', 8.8, 5, 14, 18, 0, 20),
+('Matthijs de Ligt', 'DF', 'Good', 8.6, 3, 1, 27, 0, 20),
+('Victor Osimhen', 'FW', 'Good', 9.1, 30, 5, 2, 0, 20),
+('Joshua Kimmich', 'MF', 'Good', 8.9, 6, 15, 21, 0, 20),
+('Theo Hernandez', 'DF', 'Good', 8.7, 6, 9, 26, 0, 20),
+
+-- Nolan2's 15 players
+
+('Karim Benzema', 'FW', 'Good', 9.1, 27, 12, 2, 0, 20),
+('Phil Foden', 'MF', 'Good', 9.0, 18, 15, 5, 0, 20),
+('Gavi', 'MF', 'Good', 8.6, 5, 10, 22, 0, 20),
+('Eder Militao', 'DF', 'Good', 8.7, 2, 1, 30, 0, 20),
+('Jan Oblak', 'GK', 'Good', 8.9, 0, 0, 0, 41, 20),
+('Marcus Rashford', 'FW', 'Good', 8.7, 21, 8, 3, 0, 20),
+('Bruno Fernandes', 'MF', 'Good', 9.0, 11, 18, 10, 0, 20),
+('Raphael Varane', 'DF', 'Good', 8.5, 2, 1, 28, 0, 20),
+('Marc-Andre ter Stegen', 'GK', 'Good', 8.8, 0, 0, 0, 39, 20),
+('Riyad Mahrez', 'FW', 'Good', 8.7, 19, 13, 3, 0, 20),
+('Casemiro', 'MF', 'Good', 8.5, 5, 7, 31, 0, 20),
+('Kyle Walker', 'DF', 'Good', 8.5, 1, 4, 26, 0, 20),
+('Romelu Lukaku', 'FW', 'Good', 8.8, 26, 6, 2, 0, 20),
+('Thomas Muller', 'MF', 'Good', 8.6, 12, 16, 4, 0, 20),
+('Alphonso Davies', 'DF', 'Good', 8.6, 4, 10, 24, 0, 20);
+
+CREATE TABLE Team_Players (
+    Team_Player_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Manager_ID INT,
+    Football_Player_ID INT,
+    Acquired_Date DATE,
+    Acquisition_Type ENUM('Initial','Auction','Trade') NOT NULL,
+
+    FOREIGN KEY (Manager_ID) REFERENCES Players(Player_ID),
+    FOREIGN KEY (Football_Player_ID) REFERENCES Football_Players(Football_Player_ID)
+);
+
+INSERT INTO Football_Players
+(Player_Name, Position, Player_Type, Overall_Rating, Goals, Assists, Tackles, Saves, Matches_Played)
+VALUES
+
+-- Sarwar7's 12 Default Players
+
+('Oliver Hayes', 'GK', 'Bot', 7.0, 0, 0, 0, 18, 15),
+('Lucas Martin', 'GK', 'Bot', 6.8, 0, 0, 0, 16, 15),
+('Ethan Walker', 'DF', 'Bot', 7.1, 1, 2, 22, 0, 15),
+('Daniel Foster', 'DF', 'Bot', 6.9, 1, 1, 20, 0, 15),
+('Marco Rossi', 'DF', 'Bot', 6.7, 0, 2, 18, 0, 15),
+('Adrian Silva', 'DF', 'Bot', 6.6, 1, 1, 17, 0, 15),
+('Leon Weber', 'MF', 'Bot', 7.0, 4, 5, 12, 0, 15),
+('Oscar Bennett', 'MF', 'Bot', 6.8, 3, 4, 14, 0, 15),
+('Felix Muller', 'MF', 'Bot', 6.7, 2, 5, 11, 0, 15),
+('Jack Wilson', 'FW', 'Bot', 7.2, 9, 3, 2, 0, 15),
+('Liam Carter', 'FW', 'Bot', 7.0, 7, 4, 2, 0, 15),
+('Noah Anderson', 'FW', 'Bot', 6.8, 6, 2, 3, 0, 15),
+
+-- Shafin10's 12 Default Players
+
+('James Mitchell', 'GK', 'Bot', 7.1, 0, 0, 0, 20, 15),
+('Henry Collins', 'GK', 'Bot', 6.9, 0, 0, 0, 17, 15),
+('Arthur Johnson', 'DF', 'Bot', 7.0, 1, 2, 23, 0, 15),
+('William Turner', 'DF', 'Bot', 6.8, 0, 2, 19, 0, 15),
+('Matteo Bianchi', 'DF', 'Bot', 6.7, 1, 1, 21, 0, 15),
+('Diego Navarro', 'DF', 'Bot', 6.6, 0, 1, 18, 0, 15),
+('Thomas Evans', 'MF', 'Bot', 7.0, 3, 6, 13, 0, 15),
+('Alexander Reed', 'MF', 'Bot', 6.9, 4, 4, 15, 0, 15),
+('Louis Bernard', 'MF', 'Bot', 6.7, 2, 5, 12, 0, 15),
+('Charlie Morgan', 'FW', 'Bot', 7.2, 10, 3, 2, 0, 15),
+('Benjamin Scott', 'FW', 'Bot', 7.0, 8, 3, 3, 0, 15),
+('Jack Harrison', 'FW', 'Bot', 6.8, 6, 4, 2, 0, 15),
+
+-- Farha8's 12 Default Players
+
+('William Parker', 'GK', 'Bot', 7.0, 0, 0, 0, 19, 15),
+('George Cooper', 'GK', 'Bot', 6.8, 0, 0, 0, 15, 15),
+('Robert Hughes', 'DF', 'Bot', 7.1, 1, 2, 24, 0, 15),
+('Nathan Brooks', 'DF', 'Bot', 6.9, 1, 1, 21, 0, 15),
+('Alessandro Romano', 'DF', 'Bot', 6.7, 0, 2, 19, 0, 15),
+('Sergio Costa', 'DF', 'Bot', 6.6, 1, 1, 17, 0, 15),
+('Sebastian Klein', 'MF', 'Bot', 7.1, 4, 6, 13, 0, 15),
+('Maximilian Wolf', 'MF', 'Bot', 6.9, 3, 5, 14, 0, 15),
+('Julien Moreau', 'MF', 'Bot', 6.8, 2, 4, 12, 0, 15),
+('Ryan Murphy', 'FW', 'Bot', 7.3, 10, 4, 2, 0, 15),
+('Jacob Thompson', 'FW', 'Bot', 7.0, 8, 3, 2, 0, 15),
+('Mason Lewis', 'FW', 'Bot', 6.9, 7, 4, 3, 0, 15),
+
+-- Nolan2's 12 Default Players
+
+('Edward Watson', 'GK', 'Bot', 7.1, 0, 0, 0, 21, 15),
+('Samuel Wright', 'GK', 'Bot', 6.9, 0, 0, 0, 18, 15),
+('Joseph King', 'DF', 'Bot', 7.0, 1, 2, 22, 0, 15),
+('Andrew Scott', 'DF', 'Bot', 6.8, 0, 1, 20, 0, 15),
+('Nicolas Dupont', 'DF', 'Bot', 6.7, 1, 2, 18, 0, 15),
+('Lorenzo Ferrari', 'DF', 'Bot', 6.6, 0, 1, 17, 0, 15),
+('Victor Schmidt', 'MF', 'Bot', 7.0, 4, 5, 13, 0, 15),
+('Felipe Santos', 'MF', 'Bot', 6.9, 3, 5, 15, 0, 15),
+('Thomas Laurent', 'MF', 'Bot', 6.8, 2, 4, 11, 0, 15),
+('Michael Adams', 'FW', 'Bot', 7.2, 9, 4, 2, 0, 15),
+('Christopher Moore', 'FW', 'Bot', 7.0, 8, 3, 3, 0, 15),
+('Ryan Mitchell', 'FW', 'Bot', 6.8, 6, 3, 2, 0, 15);
+
+CREATE TABLE Auctions (
+    Auction_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Football_Player_ID INT,
+    Starting_Price DECIMAL(10,2),
+    Current_Bid DECIMAL(10,2),
+    Auction_Status ENUM('Upcoming','Live','Sold','Unsold'),
+    Winner_Manager_ID INT,
+    Auction_Date DATETIME,
+
+    FOREIGN KEY (Football_Player_ID)
+        REFERENCES Football_Players(Football_Player_ID),
+
+    FOREIGN KEY (Winner_Manager_ID)
+        REFERENCES Players(Player_ID)
+);
+
+CREATE TABLE Bids (
+    Bid_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Auction_ID INT,
+    Manager_ID INT,
+    Bid_Amount DECIMAL(10,2),
+    Bid_Time DATETIME,
+
+    FOREIGN KEY (Auction_ID)
+        REFERENCES Auctions(Auction_ID),
+
+    FOREIGN KEY (Manager_ID)
+        REFERENCES Players(Player_ID)
+);
+
+CREATE TABLE Player_Transfers (
+    Transfer_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Football_Player_ID INT,
+    From_Manager_ID INT,
+    To_Manager_ID INT,
+    Transfer_Type ENUM('Buy','Sell','Trade'),
+    Transfer_Fee DECIMAL(10,2),
+    Transfer_Date DATETIME,
+
+    FOREIGN KEY (Football_Player_ID)
+        REFERENCES Football_Players(Football_Player_ID),
+
+    FOREIGN KEY (From_Manager_ID)
+        REFERENCES Players(Player_ID),
+
+    FOREIGN KEY (To_Manager_ID)
+        REFERENCES Players(Player_ID)
+);
+
+CREATE TABLE Player_Awards (
+    Award_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Football_Player_ID INT,
+    Award_Type ENUM('Player of the Week','Player of the Month'),
+    Award_Period DATE,
+    Goals INT,
+    Assists INT,
+    Tackles INT,
+    Saves INT,
+    Reason VARCHAR(255),
+
+    FOREIGN KEY (Football_Player_ID)
+        REFERENCES Football_Players(Football_Player_ID)
+);
+
+
+INSERT INTO Team_Players
+(Manager_ID, Football_Player_ID, Acquired_Date, Acquisition_Type)
+VALUES
+
+-- Sarwar7: Good players 1-15
+(1, 1, '2026-08-20', 'Initial'),
+(1, 2, '2026-08-20', 'Initial'),
+(1, 3, '2026-08-20', 'Initial'),
+(1, 4, '2026-08-20', 'Initial'),
+(1, 5, '2026-08-20', 'Initial'),
+(1, 6, '2026-08-20', 'Initial'),
+(1, 7, '2026-08-20', 'Initial'),
+(1, 8, '2026-08-20', 'Initial'),
+(1, 9, '2026-08-20', 'Initial'),
+(1, 10, '2026-08-20', 'Initial'),
+(1, 11, '2026-08-20', 'Initial'),
+(1, 12, '2026-08-20', 'Initial'),
+(1, 13, '2026-08-20', 'Initial'),
+(1, 14, '2026-08-20', 'Initial'),
+(1, 15, '2026-08-20', 'Initial'),
+
+-- Sarwar7: Bot players 61-72
+(1, 61, '2026-08-20', 'Initial'),
+(1, 62, '2026-08-20', 'Initial'),
+(1, 63, '2026-08-20', 'Initial'),
+(1, 64, '2026-08-20', 'Initial'),
+(1, 65, '2026-08-20', 'Initial'),
+(1, 66, '2026-08-20', 'Initial'),
+(1, 67, '2026-08-20', 'Initial'),
+(1, 68, '2026-08-20', 'Initial'),
+(1, 69, '2026-08-20', 'Initial'),
+(1, 70, '2026-08-20', 'Initial'),
+(1, 71, '2026-08-20', 'Initial'),
+(1, 72, '2026-08-20', 'Initial'),
+
+-- Shafin10: Good players 16-30
+(2, 16, '2026-08-20', 'Initial'),
+(2, 17, '2026-08-20', 'Initial'),
+(2, 18, '2026-08-20', 'Initial'),
+(2, 19, '2026-08-20', 'Initial'),
+(2, 20, '2026-08-20', 'Initial'),
+(2, 21, '2026-08-20', 'Initial'),
+(2, 22, '2026-08-20', 'Initial'),
+(2, 23, '2026-08-20', 'Initial'),
+(2, 24, '2026-08-20', 'Initial'),
+(2, 25, '2026-08-20', 'Initial'),
+(2, 26, '2026-08-20', 'Initial'),
+(2, 27, '2026-08-20', 'Initial'),
+(2, 28, '2026-08-20', 'Initial'),
+(2, 29, '2026-08-20', 'Initial'),
+(2, 30, '2026-08-20', 'Initial'),
+
+-- Shafin10: Bot players 73-84
+(2, 73, '2026-08-20', 'Initial'),
+(2, 74, '2026-08-20', 'Initial'),
+(2, 75, '2026-08-20', 'Initial'),
+(2, 76, '2026-08-20', 'Initial'),
+(2, 77, '2026-08-20', 'Initial'),
+(2, 78, '2026-08-20', 'Initial'),
+(2, 79, '2026-08-20', 'Initial'),
+(2, 80, '2026-08-20', 'Initial'),
+(2, 81, '2026-08-20', 'Initial'),
+(2, 82, '2026-08-20', 'Initial'),
+(2, 83, '2026-08-20', 'Initial'),
+(2, 84, '2026-08-20', 'Initial'),
+
+-- Farha8: Good players 31-45
+    
+(3, 31, '2026-08-20', 'Initial'),
+(3, 32, '2026-08-20', 'Initial'),
+(3, 33, '2026-08-20', 'Initial'),
+(3, 34, '2026-08-20', 'Initial'),
+(3, 35, '2026-08-20', 'Initial'),
+(3, 36, '2026-08-20', 'Initial'),
+(3, 37, '2026-08-20', 'Initial'),
+(3, 38, '2026-08-20', 'Initial'),
+(3, 39, '2026-08-20', 'Initial'),
+(3, 40, '2026-08-20', 'Initial'),
+(3, 41, '2026-08-20', 'Initial'),
+(3, 42, '2026-08-20', 'Initial'),
+(3, 43, '2026-08-20', 'Initial'),
+(3, 44, '2026-08-20', 'Initial'),
+(3, 45, '2026-08-20', 'Initial'),
+
+-- Farha8: Bot players 85-96
+(3, 85, '2026-08-20', 'Initial'),
+(3, 86, '2026-08-20', 'Initial'),
+(3, 87, '2026-08-20', 'Initial'),
+(3, 88, '2026-08-20', 'Initial'),
+(3, 89, '2026-08-20', 'Initial'),
+(3, 90, '2026-08-20', 'Initial'),
+(3, 91, '2026-08-20', 'Initial'),
+(3, 92, '2026-08-20', 'Initial'),
+(3, 93, '2026-08-20', 'Initial'),
+(3, 94, '2026-08-20', 'Initial'),
+(3, 95, '2026-08-20', 'Initial'),
+(3, 96, '2026-08-20', 'Initial'),
+
+-- Nolan2: Good players 46-60
+(4, 46, '2026-08-20', 'Initial'),
+(4, 47, '2026-08-20', 'Initial'),
+(4, 48, '2026-08-20', 'Initial'),
+(4, 49, '2026-08-20', 'Initial'),
+(4, 50, '2026-08-20', 'Initial'),
+(4, 51, '2026-08-20', 'Initial'),
+(4, 52, '2026-08-20', 'Initial'),
+(4, 53, '2026-08-20', 'Initial'),
+(4, 54, '2026-08-20', 'Initial'),
+(4, 55, '2026-08-20', 'Initial'),
+(4, 56, '2026-08-20', 'Initial'),
+(4, 57, '2026-08-20', 'Initial'),
+(4, 58, '2026-08-20', 'Initial'),
+(4, 59, '2026-08-20', 'Initial'),
+(4, 60, '2026-08-20', 'Initial'),
+
+-- Nolan2: Bot players 97-108
+(4, 97, '2026-08-20', 'Initial'),
+(4, 98, '2026-08-20', 'Initial'),
+(4, 99, '2026-08-20', 'Initial'),
+(4, 100, '2026-08-20', 'Initial'),
+(4, 101, '2026-08-20', 'Initial'),
+(4, 102, '2026-08-20', 'Initial'),
+(4, 103, '2026-08-20', 'Initial'),
+(4, 104, '2026-08-20', 'Initial'),
+(4, 105, '2026-08-20', 'Initial'),
+(4, 106, '2026-08-20', 'Initial'),
+(4, 107, '2026-08-20', 'Initial'),
+(4, 108, '2026-08-20', 'Initial');
+
+CREATE TABLE Manager_Wallet ( 
+    Wallet_ID INT PRIMARY KEY AUTO_INCREMENT, 
+    Manager_ID INT UNIQUE, 
+    Balance DECIMAL(12,2) DEFAULT 1000000.00, 
+ 
+    FOREIGN KEY (Manager_ID) 
+        REFERENCES Players(Player_ID) 
+); 
+ 
+INSERT INTO Manager_Wallet (Manager_ID, Balance) 
+VALUES 
+(1, 1000000.00), 
+(2, 1000000.00), 
+(3, 1000000.00), 
+(4, 1000000.00); 
+ 
+ALTER TABLE Football_Players 
+ADD Market_Value DECIMAL(12,2); 
+ 
+INSERT INTO Auctions 
+(Football_Player_ID, Starting_Price, Current_Bid, Auction_Status, Auction_Date) 
+VALUES 
+(16, 300000.00, 350000.00, 'Live', '2026-08-20 20:00:00'), 
+(31, 250000.00, 300000.00, 'Upcoming', '2026-08-21 20:00:00'), 
+(46, 200000.00, 200000.00, 'Upcoming', '2026-08-22 20:00:00'); 
+ 
+INSERT INTO Player_Awards 
+(Football_Player_ID, Award_Type, Award_Period, 
+ Goals, Assists, Tackles, Saves, Reason) 
+VALUES 
+(1, 'Player of the Week', '2026-08-17', 
+ 5, 2, 1, 0, 'Outstanding attacking performance'), 
+ 
+(4, 'Player of the Month', '2026-08-01', 
+ 2, 1, 18, 0, 'Excellent defensive performance'), 
+ 
+(5, 'Player of the Week', '2026-08-17', 
+ 0, 0, 0, 12, 'Exceptional goalkeeping performance'); 
+  
+INSERT INTO Player_Transfers 
+(Football_Player_ID, From_Manager_ID, To_Manager_ID, 
+ Transfer_Type, Transfer_Fee, Transfer_Date) 
+VALUES 
+(16, 1, 2, 'Sell', 750000.00, '2026-08-25');
+
+UPDATE Auctions
+SET Current_Bid = 400000.00
+WHERE Auction_ID = 1;
+
+UPDATE Auctions
+SET Current_Bid = 350000.00
+WHERE Auction_ID = 2;
+
+UPDATE Auctions
+SET Current_Bid = 250000.00
+WHERE Auction_ID = 3;
+
+-- Rodri auction
+UPDATE Auctions
+SET Football_Player_ID = 11,
+    Starting_Price = 300000.00,
+    Current_Bid = 400000.00,
+    Auction_Status = 'Live'
+WHERE Auction_ID = 1;
+
+-- Bids for Rodri
+INSERT INTO Bids
+(Auction_ID, Manager_ID, Bid_Amount, Bid_Time)
+VALUES
+(1, 2, 350000.00, '2026-08-20 20:05:00'),
+(1, 3, 375000.00, '2026-08-20 20:08:00'),
+(1, 2, 400000.00, '2026-08-20 20:10:00');
+
+-- Shafin wins Rodri
+UPDATE Auctions
+SET Current_Bid = 400000.00,
+    Auction_Status = 'Sold',
+    Winner_Manager_ID = 2
+WHERE Auction_ID = 1;
+
+INSERT INTO Player_Transfers
+(Football_Player_ID, From_Manager_ID, To_Manager_ID,
+ Transfer_Type, Transfer_Fee, Transfer_Date)
+VALUES
+(11, 1, 2, 'Sell', 400000.00, '2026-08-20 20:10:00');
+
+DELETE FROM Team_Players
+WHERE Manager_ID = 1
+AND Football_Player_ID = 11;
+
+INSERT INTO Team_Players
+(Manager_ID, Football_Player_ID, Acquired_Date, Acquisition_Type)
+VALUES
+(2, 11, '2026-08-20', 'Auction');
+
+-- Rodri Auction
+
+UPDATE Auctions
+SET Football_Player_ID = 11,
+    Starting_Price = 300000.00,
+    Current_Bid = 400000.00,
+    Auction_Status = 'Live'
+WHERE Auction_ID = 1;
+
+
+-- Bids for Rodri
+
+INSERT INTO Bids
+(Auction_ID, Manager_ID, Bid_Amount, Bid_Time)
+VALUES
+(1, 2, 350000.00, '2026-08-20 20:05:00'),
+(1, 3, 375000.00, '2026-08-20 20:08:00'),
+(1, 2, 400000.00, '2026-08-20 20:10:00');
+
+
+-- Shafin wins Rodri
+
+UPDATE Auctions
+SET Current_Bid = 400000.00,
+    Auction_Status = 'Sold',
+    Winner_Manager_ID = 2
+WHERE Auction_ID = 1;
+
+
+-- Rodri transferred from Sarwar to Shafin
+
+INSERT INTO Player_Transfers
+(Football_Player_ID, From_Manager_ID, To_Manager_ID,
+Transfer_Type, Transfer_Fee, Transfer_Date)
+VALUES
+(11, 1, 2, 'Sell', 400000.00, '2026-08-20 20:10:00');
+
+
+-- Remove Rodri from Sarwar's team
+
+DELETE FROM Team_Players
+WHERE Manager_ID = 1
+AND Football_Player_ID = 11;
+
+
+-- Add Rodri to Shafin's team
+
+INSERT INTO Team_Players
+(Manager_ID, Football_Player_ID, Acquired_Date, Acquisition_Type)
+VALUES
+(2, 11, '2026-08-20', 'Auction');
+
+
+-- Update wallets
+
+UPDATE Manager_Wallet
+SET Balance = Balance - 400000.00
+WHERE Manager_ID = 2;
+
+UPDATE Manager_Wallet
+SET Balance = Balance + 400000.00
+WHERE Manager_ID = 1;
+
+INSERT INTO Player_Transfers
+(Football_Player_ID, From_Manager_ID, To_Manager_ID,
+Transfer_Type, Transfer_Fee, Transfer_Date)
+VALUES
+(16, 1, 2, 'Sell', 750000.00, '2026-08-25');
+
+DELETE FROM Team_Players
+WHERE Football_Player_ID = 11;
+
+INSERT INTO Team_Players
+(Manager_ID, Football_Player_ID, Acquired_Date, Acquisition_Type)
+VALUES
+(2, 11, '2026-08-20', 'Auction');

@@ -1004,3 +1004,64 @@ INSERT INTO Team_Players
 (Manager_ID, Football_Player_ID, Acquired_Date, Acquisition_Type)
 VALUES
 (2, 11, '2026-08-20', 'Auction');
+
+ALTER TABLE Players
+MODIFY Preferred_Formation ENUM(
+    '4-3-3','4-2-3-1','4-4-2','4-3-1-2','4-1-2-3','4-2-2-2','5-3-2'
+);
+
+CREATE TABLE Admin_Permissions (
+    Permission_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Admin_ID INT NOT NULL,
+    Table_Name VARCHAR(100) NOT NULL,
+    Can_View BOOLEAN DEFAULT TRUE,
+    Can_Insert BOOLEAN DEFAULT FALSE,
+    Can_Update BOOLEAN DEFAULT FALSE,
+    Can_Delete BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (Admin_ID) REFERENCES Admins(Admin_ID),
+    UNIQUE (Admin_ID, Table_Name)
+);
+
+INSERT INTO Admin_Permissions
+(Admin_ID, Table_Name, Can_View, Can_Insert, Can_Update, Can_Delete)
+VALUES
+(1, 'Players', TRUE, TRUE, TRUE, TRUE),
+(1, 'Tournaments', TRUE, TRUE, TRUE, TRUE),
+(1, 'Matches', TRUE, TRUE, TRUE, TRUE),
+(1, 'Match_Statistics', TRUE, TRUE, TRUE, TRUE),
+(1, 'Player_Profile', TRUE, TRUE, TRUE, TRUE),
+(1, 'Rankings', TRUE, TRUE, TRUE, TRUE),
+(1, 'Live_Streams', TRUE, TRUE, TRUE, TRUE),
+(1, 'Live_Chat', TRUE, TRUE, TRUE, TRUE),
+(1, 'Predictions', TRUE, TRUE, TRUE, TRUE),
+(1, 'Recommendations', TRUE, TRUE, TRUE, TRUE),
+(1, 'Football_Players', TRUE, TRUE, TRUE, TRUE),
+(1, 'Team_Players', TRUE, TRUE, TRUE, TRUE),
+(1, 'Manager_Wallet', TRUE, TRUE, TRUE, TRUE),
+(1, 'Auctions', TRUE, TRUE, TRUE, TRUE),
+(1, 'Bids', TRUE, TRUE, TRUE, TRUE),
+(1, 'Player_Transfers', TRUE, TRUE, TRUE, TRUE),
+(1, 'Player_Awards', TRUE, TRUE, TRUE, TRUE),
+(1, 'Audience_Reviews', TRUE, TRUE, TRUE, TRUE),
+(2, 'Tournaments', TRUE, TRUE, TRUE, TRUE),
+(3, 'Tournaments', TRUE, TRUE, TRUE, TRUE)
+;
+
+CREATE TABLE Audience_Reviews (
+    Review_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Player_ID INT,
+    Match_ID INT,
+    Audience_Name VARCHAR(100) NOT NULL,
+    Rating INT NOT NULL CHECK (Rating BETWEEN 1 AND 5),
+    Review_Text VARCHAR(500),
+    Review_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (Player_ID) REFERENCES Players(Player_ID),
+    FOREIGN KEY (Match_ID) REFERENCES Matches(Match_ID)
+);
+INSERT INTO Audience_Reviews
+(Player_ID, Match_ID, Audience_Name, Rating, Review_Text)
+VALUES
+(1, 1, 'Fahim', 5, 'Excellent performance by the player.'),
+(2, 2, 'Rahim', 4, 'Very competitive match.'),
+(3, 3, 'Nabil', 5, 'Amazing attacking performance.'),
+(1, 3, 'Sakib', 4, 'Great match and good gameplay.');

@@ -1065,3 +1065,22 @@ VALUES
 (2, 2, 'Rahim', 4, 'Very competitive match.'),
 (3, 3, 'Nabil', 5, 'Amazing attacking performance.'),
 (1, 3, 'Sakib', 4, 'Great match and good gameplay.');
+
+ALTER TABLE Players
+ADD Password VARCHAR(255) NOT NULL;
+
+UPDATE Players
+SET Password = 'Sarwar123'
+WHERE Gamer_Tag = 'Sarwar7';
+
+UPDATE Players
+SET Password = 'Shafin123'
+WHERE Gamer_Tag = 'Shafin10';
+
+UPDATE Players
+SET Password = 'Farha123'
+WHERE Gamer_Tag = 'Farha8';
+
+UPDATE Players
+SET Password = 'Nolan123'
+WHERE Gamer_Tag = 'Nolan2';

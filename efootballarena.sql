@@ -1010,6 +1010,25 @@ MODIFY Preferred_Formation ENUM(
     '4-3-3','4-2-3-1','4-4-2','4-3-1-2','4-1-2-3','4-2-2-2','5-3-2'
 );
 
+CREATE TABLE Audience_Reviews (
+    Review_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Player_ID INT,
+    Match_ID INT,
+    Audience_Name VARCHAR(100) NOT NULL,
+    Rating INT NOT NULL CHECK (Rating BETWEEN 1 AND 5),
+    Review_Text VARCHAR(500),
+    Review_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (Player_ID) REFERENCES Players(Player_ID),
+    FOREIGN KEY (Match_ID) REFERENCES Matches(Match_ID)
+);
+INSERT INTO Audience_Reviews
+(Player_ID, Match_ID, Audience_Name, Rating, Review_Text)
+VALUES
+(1, 1, 'Fahim', 5, 'Excellent performance by the player.'),
+(2, 2, 'Rahim', 4, 'Very competitive match.'),
+(3, 3, 'Nabil', 5, 'Amazing attacking performance.'),
+(1, 3, 'Sakib', 4, 'Great match and good gameplay.');
+
 CREATE TABLE Admin_Permissions (
     Permission_ID INT PRIMARY KEY AUTO_INCREMENT,
     Admin_ID INT NOT NULL,
@@ -1046,25 +1065,6 @@ VALUES
 (2, 'Tournaments', TRUE, TRUE, TRUE, TRUE),
 (3, 'Tournaments', TRUE, TRUE, TRUE, TRUE)
 ;
-
-CREATE TABLE Audience_Reviews (
-    Review_ID INT PRIMARY KEY AUTO_INCREMENT,
-    Player_ID INT,
-    Match_ID INT,
-    Audience_Name VARCHAR(100) NOT NULL,
-    Rating INT NOT NULL CHECK (Rating BETWEEN 1 AND 5),
-    Review_Text VARCHAR(500),
-    Review_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (Player_ID) REFERENCES Players(Player_ID),
-    FOREIGN KEY (Match_ID) REFERENCES Matches(Match_ID)
-);
-INSERT INTO Audience_Reviews
-(Player_ID, Match_ID, Audience_Name, Rating, Review_Text)
-VALUES
-(1, 1, 'Fahim', 5, 'Excellent performance by the player.'),
-(2, 2, 'Rahim', 4, 'Very competitive match.'),
-(3, 3, 'Nabil', 5, 'Amazing attacking performance.'),
-(1, 3, 'Sakib', 4, 'Great match and good gameplay.');
 
 ALTER TABLE Players
 ADD Password VARCHAR(255) NOT NULL;

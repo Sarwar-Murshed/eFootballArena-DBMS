@@ -1084,3 +1084,22 @@ WHERE Gamer_Tag = 'Farha8';
 UPDATE Players
 SET Password = 'Nolan123'
 WHERE Gamer_Tag = 'Nolan2';
+
+UPDATE Live_Streams
+SET Status = 'Ended',
+    End_Time = NOW()
+WHERE Status = 'Live';
+
+UPDATE Matches
+SET Final_Score = '2-1',
+    Winner_ID = 1
+WHERE Match_ID = 1;
+
+UPDATE Live_Streams
+SET Status = 'Live',
+    Start_Time = NOW() - INTERVAL 45 MINUTE - INTERVAL 32 SECOND,
+    End_Time = NULL,
+    Viewer_Count = 1250
+WHERE Match_ID = 1;
+
+

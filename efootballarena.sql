@@ -1102,4 +1102,56 @@ SET Status = 'Live',
     Viewer_Count = 1250
 WHERE Match_ID = 1;
 
+ALTER TABLE Players
+ADD COLUMN Profile_Picture VARCHAR(255) NULL;
+
+CREATE TABLE Market_Listings (
+    Listing_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Football_Player_ID INT NOT NULL,
+    Seller_ID INT,                    
+    Asking_Price DECIMAL(12,2) NOT NULL,
+    Listing_Status ENUM('Available','Sold') DEFAULT 'Available',
+    Listed_Date DATETIME DEFAULT CURRENT_TIMESTAMP,
+
+    FOREIGN KEY (Football_Player_ID) REFERENCES Football_Players(Football_Player_ID),
+    FOREIGN KEY (Seller_ID) REFERENCES Players(Player_ID)
+);
+
+INSERT INTO Market_Listings (Football_Player_ID, Seller_ID, Asking_Price, Listing_Status)
+VALUES
+(16, NULL, 350000.00, 'Available'),
+(31, NULL, 280000.00, 'Available'),
+(46, NULL, 220000.00, 'Available'),
+(11, NULL, 400000.00, 'Available'),
+(5,  NULL, 320000.00, 'Available');
+
+CREATE TABLE Notifications (
+    Notification_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Player_ID INT NULL,
+    Title VARCHAR(150) NOT NULL,
+    Message TEXT NOT NULL,
+    Type ENUM('System', 'Match', 'Transfer', 'Tournament', 'Achievement', 'Market') DEFAULT 'System',
+    Is_Read TINYINT(1) DEFAULT 0,
+    Created_At DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (Player_ID) REFERENCES Players(Player_ID)
+);
+
+INSERT INTO Notifications (Player_ID, Title, Message, Type, Is_Read) VALUES
+(NULL, 'Official FIFA Collaboration', 'eFootball Arena has officially partnered with FIFA for the 2026 World eFootball Cup. Exclusive rewards and licensed tournaments are now available!', 'System', 0),
+
+(NULL, 'New Season Started', 'Welcome to eFootball Arena Season 2026! Build your squad, compete in tournaments and climb the rankings.', 'System', 0),
+
+(NULL, 'Market Update', 'Player market prices have been updated. Ronaldo and Messi are now listed at 700,000 coins each.', 'Market', 0),
+
+(NULL, 'Tournament Alert', 'FIFA Club World Cup registration is now open. Prize pool: $10,000. Register before the deadline!', 'Tournament', 0),
+
+(NULL, 'Live Match Starting', 'A high-intensity match is going live in 15 minutes. Don\'t miss the action!', 'Match', 0),
+
+(NULL, 'Achievement Unlocked', 'New achievement available: "Giant Killer" – Defeat the Rank #1 player to unlock special rewards.', 'Achievement', 0),
+
+(NULL, 'Transfer Window Open', 'The transfer window is active. Buy and sell players freely in the Markets section.', 'Transfer', 0),
+
+(NULL, 'Weekly Rewards', 'Log in daily this week to receive bonus coins and exclusive player packs.', 'System', 0);
+
+
 

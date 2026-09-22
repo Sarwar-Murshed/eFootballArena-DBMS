@@ -1154,4 +1154,92 @@ INSERT INTO Notifications (Player_ID, Title, Message, Type, Is_Read) VALUES
 (NULL, 'Weekly Rewards', 'Log in daily this week to receive bonus coins and exclusive player packs.', 'System', 0);
 
 
+    CREATE TABLE Coaches (
+    Coach_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Coach_Name VARCHAR(50) NOT NULL,
+    Image VARCHAR(100) NOT NULL,
+    Price DECIMAL(12,2) NOT NULL,
+    Description VARCHAR(255)
+);
+
+CREATE TABLE Manager_Coach (
+    Manager_ID INT NOT NULL,
+    Coach_ID INT NOT NULL,
+    Acquired_Date DATE DEFAULT CURRENT_DATE,
+    PRIMARY KEY (Manager_ID, Coach_ID),
+    FOREIGN KEY (Manager_ID) REFERENCES Players(Player_ID),
+    FOREIGN KEY (Coach_ID) REFERENCES Coaches(Coach_ID)
+);
+
+INSERT INTO Coaches (Coach_Name, Image, Price, Description) VALUES
+('Alex', 'Coach/Alex.jpg', 50000, 'Default coach for new managers'),
+('Ancelotti', 'Coach/Ancelotti.jpg', 350000, 'Experienced tactician'),
+('Arteta', 'Coach/Arteta.jpg', 280000, 'Modern possession coach'),
+('Flick', 'Coach/Flick.jpg', 400000, 'High pressing specialist'),
+('Klopp', 'Coach/Klop.jpg', 450000, 'Heavy metal football'),
+('Luis Enrique', 'Coach/Luis Enrique.jpg', 320000, 'Attacking minded coach'),
+('Mourinho', 'Coach/Mourinho.jpg', 380000, 'Defensive mastermind'),
+('Pep', 'Coach/Pep.jpg', 500000, 'Tiki-taka legend'),
+('Simeone', 'Coach/Simeone.jpg', 300000, 'Intense defensive coach'),
+('Tuchel', 'Coach/Tuchel.jpg', 340000, 'Tactical flexibility'),
+('Xabi Alonso', 'Coach/Xabi Alonso.jpg', 360000, 'Rising star coach'),
+('Xavi', 'Coach/Xavi.jpg', 310000, 'Possession based coach'),
+('Zidane', 'Coach/Zidane.jpg', 480000, 'Champions League specialist');
+
+INSERT INTO Manager_Coach (Manager_ID, Coach_ID)
+SELECT p.Player_ID, c.Coach_ID
+FROM Players p
+JOIN Coaches c
+    ON c.Coach_Name = 'Zidane'
+WHERE p.Gamer_Tag = 'Sarwar7'
+AND NOT EXISTS (
+    SELECT 1
+    FROM Manager_Coach mc
+    WHERE mc.Manager_ID = p.Player_ID
+    AND mc.Coach_ID = c.Coach_ID
+);
+
+
+INSERT INTO Manager_Coach (Manager_ID, Coach_ID)
+SELECT p.Player_ID, c.Coach_ID
+FROM Players p
+JOIN Coaches c
+    ON c.Coach_Name = 'Flick'
+WHERE p.Gamer_Tag = 'Shafin10'
+AND NOT EXISTS (
+    SELECT 1
+    FROM Manager_Coach mc
+    WHERE mc.Manager_ID = p.Player_ID
+    AND mc.Coach_ID = c.Coach_ID
+);
+
+
+INSERT INTO Manager_Coach (Manager_ID, Coach_ID)
+SELECT p.Player_ID, c.Coach_ID
+FROM Players p
+JOIN Coaches c
+    ON c.Coach_Name = 'Ancelotti'
+WHERE p.Gamer_Tag = 'Nolan2'
+AND NOT EXISTS (
+    SELECT 1
+    FROM Manager_Coach mc
+    WHERE mc.Manager_ID = p.Player_ID
+    AND mc.Coach_ID = c.Coach_ID
+);
+
+
+INSERT INTO Manager_Coach (Manager_ID, Coach_ID)
+SELECT p.Player_ID, c.Coach_ID
+FROM Players p
+JOIN Coaches c
+    ON c.Coach_Name = 'Mourinho'
+WHERE p.Gamer_Tag = 'Farha8'
+AND NOT EXISTS (
+    SELECT 1
+    FROM Manager_Coach mc
+    WHERE mc.Manager_ID = p.Player_ID
+    AND mc.Coach_ID = c.Coach_ID
+);
+
+
 

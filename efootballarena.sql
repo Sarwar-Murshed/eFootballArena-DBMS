@@ -1252,3 +1252,7 @@ CREATE TABLE Auction_Giveups (
 
 ALTER TABLE Players 
 ADD COLUMN Last_Daily_Claim DATETIME NULL;
+
+UPDATE Live_Chat
+SET Stream_ID = 1
+WHERE Stream_ID = 2;

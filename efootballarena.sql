@@ -1241,5 +1241,14 @@ AND NOT EXISTS (
     AND mc.Coach_ID = c.Coach_ID
 );
 
+CREATE TABLE Auction_Giveups (
+    Auction_ID INT NOT NULL,
+    Manager_ID INT NOT NULL,
+    Giveup_Time DATETIME DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (Auction_ID, Manager_ID),
+    FOREIGN KEY (Auction_ID) REFERENCES Auctions(Auction_ID) ON DELETE CASCADE,
+    FOREIGN KEY (Manager_ID) REFERENCES Players(Player_ID)
+);
 
-
+ALTER TABLE Players 
+ADD COLUMN Last_Daily_Claim DATETIME NULL;

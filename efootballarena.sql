@@ -1256,3 +1256,18 @@ ADD COLUMN Last_Daily_Claim DATETIME NULL;
 UPDATE Live_Chat
 SET Stream_ID = 1
 WHERE Stream_ID = 2;
+
+CREATE TABLE Auction_Participants (
+    Participant_ID INT PRIMARY KEY AUTO_INCREMENT,
+    Auction_ID INT NOT NULL,
+    Manager_ID INT NOT NULL,
+    Joined_At DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    Turn_Ends_At DATETIME NOT NULL,
+    Participant_Status ENUM('Active','Given Up','Expired','Winner') DEFAULT 'Active',
+    UNIQUE (Auction_ID, Manager_ID),
+    FOREIGN KEY (Auction_ID) REFERENCES Auctions(Auction_ID),
+    FOREIGN KEY (Manager_ID) REFERENCES Players(Player_ID)
+);
+
+ALTER TABLE Auctions ADD COLUMN Last_Bid_Time DATETIME NULL;
+    

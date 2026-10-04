@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>eFootball Arena 2026</title>
+
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+<body>
+
+<div class="front-page">
+
+    <div class="overlay"></div>
+
+    <div class="content">
+
+        <div class="welcome">
+            WELCOME TO
+        </div>
+
+        <h1>
+            eFOOTBALL
+        </h1>
+
+        <h2>
+            ARENA 2026
+        </h2>
+
+        <p>
+            THE ULTIMATE FOOTBALL BATTLE
+        </p>
+
+        <button class="enter-button" id="enterButton">
+
+            <span>→</span>
+
+        </button>
+
+        <div class="button-text" id="buttonText">
+            ENTER ARENA
+        </div>
+
+    </div>
+
+</div>
+
+<audio id="clickSound">
+    <source src="Audio/click.mp3" type="audio/mpeg">
+</audio>
+
+
+<script>
+
+const enterButton = document.getElementById("enterButton");
+
+const buttonText = document.getElementById("buttonText");
+
+const clickSound = document.getElementById("clickSound");
+
+
+enterButton.addEventListener("click", function() {
+
+    clickSound.currentTime = 0;
+    clickSound.play();
+
+    enterButton.classList.add("loading");
+
+    buttonText.innerHTML = "LOADING ARENA...";
+
+    enterButton.disabled = true;
+
+
+    setTimeout(function() {
+
+        window.location.href =
+            "http://localhost/eFootballArena/login.php";
+
+    }, 1800);
+
+});
+
+</script>
+
+</body>
+
+</html>

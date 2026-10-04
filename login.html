@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eFootball Arena - Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <div class="login-container">
+
+        <div class="login-box">
+
+            <div class="logo">
+
+                <div class="arena-logo">
+                    <div class="crown">♛</div>
+                    <div class="logo-text">EA</div>
+                    <div class="logo-ball">⚽</div>
+                </div>
+
+                <h1><span>e</span>Football</h1>
+
+                <h2>ARENA</h2>
+
+                <div class="line"></div>
+
+                <p>THE ULTIMATE FOOTBALL BATTLE</p>
+
+            </div>
+
+            <form action="login.php" method="POST" id="loginForm">
+
+                <label>Username / Email</label>
+
+                <input
+                    type="text"
+                    name="Username"
+                    id="username"
+                    placeholder="Enter your gamer tag or email"
+                    required
+                >
+
+                <label>Password</label>
+
+                <div class="password-container">
+
+                    <input
+                        type="password"
+                        name="Password"
+                        id="password"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                    <button type="button" id="showPassword">
+                        Show
+                    </button>
+
+                </div>
+
+                <button
+                    type="submit"
+                    name="Login"
+                    class="login-button">
+                    LOGIN
+                </button>
+
+            </form>
+
+            <div class="login-info">
+                <p>Player: Gamer Tag + Password</p>
+                <p>Admin: Email + Password</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="login.js"></script>
+
+</body>
+</html>

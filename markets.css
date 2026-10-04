@@ -1,0 +1,168 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #05070d;
+    color: white;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.8)),
+        url("Images/dashboard-bg.png") center/cover no-repeat;
+    z-index: -1;
+}
+
+.topbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: rgba(5, 7, 13, 0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-weight: normal;
+    opacity: 0.7;
+    margin-left: 4px;
+}
+
+.navigation {
+    display: flex;
+    gap: 28px;
+}
+
+.navigation a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    color: #9d7cff;
+}
+
+.profile {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.markets-page {
+    width: 90%;
+    max-width: 1100px;
+    margin: 50px auto;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.page-header h1 {
+    font-size: 38px;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #aaa;
+    font-size: 15px;
+}
+
+.market-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.market-card {
+    background: rgba(12, 15, 25, 0.94);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 16px;
+    padding: 45px 35px;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
+
+.market-card:hover {
+    transform: translateY(-6px);
+    border-color: #9d7cff;
+}
+
+.card-icon {
+    font-size: 48px;
+    margin-bottom: 18px;
+}
+
+.market-card h2 {
+    font-size: 26px;
+    margin-bottom: 12px;
+}
+
+.market-card p {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+.card-btn {
+    display: inline-block;
+    background: #6c3cff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.buy-card:hover .card-btn {
+    background: #844fff;
+}
+
+.sell-card .card-btn {
+    background: #2a8f5a;
+}
+
+.sell-card:hover .card-btn {
+    background: #35a86c;
+}
+
+.back-section {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.back-section a {
+    color: #b39aff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-section a:hover {
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .market-buttons {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,150 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    color: white;
+
+    background-image: url("Images/dashboard-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-container {
+    width: 100%;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    background: transparent;
+}
+
+.register-box {
+    width: 400px;
+    padding: 35px;
+
+    background: rgba(15, 15, 27, 0.96);
+
+    border: 1px solid #292943;
+    border-radius: 15px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+
+    text-align: center;
+}
+
+.register-box h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.register-box h2 {
+    font-size: 22px;
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+form input {
+    width: 100%;
+    padding: 13px 15px;
+
+    border: 1px solid #292943;
+    border-radius: 8px;
+
+    background: #10101c;
+    color: white;
+
+    outline: none;
+    font-size: 14px;
+}
+
+form input:focus {
+    border-color: #6c3cff;
+}
+
+form input::placeholder {
+    color: #777;
+}
+
+form button {
+    border: none;
+    padding: 13px;
+
+    border-radius: 8px;
+
+    background: #6c3cff;
+    color: white;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+form button:hover {
+    background: #844fff;
+}
+
+.message {
+    color: #61e294;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.login-text {
+    margin-top: 20px;
+
+    color: #aaa;
+    font-size: 14px;
+}
+
+.login-text a {
+    color: #9d7cff;
+
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-text a:hover {
+    color: #b39aff;
+}
+
+@media (max-width: 500px) {
+
+    .register-container {
+        padding: 20px;
+    }
+
+    .register-box {
+        width: 100%;
+        padding: 28px 22px;
+    }
+}

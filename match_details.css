@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #05070d;
+    color: white;
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.85)),
+        url("Images/dashboard-bg.png") center/cover no-repeat;
+    z-index: -1;
+}
+
+.topbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background: rgba(5, 7, 13, 0.95);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-weight: normal;
+    opacity: 0.7;
+    margin-left: 4px;
+}
+
+.navigation {
+    display: flex;
+    gap: 25px;
+}
+
+.navigation a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    color: #9d7cff;
+}
+
+.profile {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.details-page {
+    width: 92%;
+    max-width: 1000px;
+    margin: 35px auto 50px;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.back-link {
+    display: inline-block;
+    color: #b39aff;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 12px;
+}
+
+.back-link:hover {
+    color: white;
+}
+
+.page-header h1 {
+    font-size: 32px;
+    margin-bottom: 6px;
+}
+
+.page-header p {
+    color: #aaa;
+    font-size: 14px;
+}
+
+.scoreboard {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    background: rgba(12, 15, 25, 0.95);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 35px 30px;
+    margin-bottom: 30px;
+}
+
+.team {
+    text-align: center;
+}
+
+.club-name {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+}
+
+.gamer-tag {
+    font-size: 14px;
+    color: #aaa;
+    font-weight: normal;
+}
+
+.score-center {
+    text-align: center;
+    padding: 0 30px;
+}
+
+.final-score {
+    font-size: 48px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.match-date {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.winner {
+    color: #61e294;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.stats-section {
+    background: rgba(12, 15, 25, 0.95);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 16px;
+    padding: 28px;
+}
+
+.stats-section h2 {
+    font-size: 18px;
+    margin-bottom: 22px;
+    color: #b39aff;
+    letter-spacing: 1px;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.stat-value {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.stat-row.yellow .stat-value {
+    color: #ffd34d;
+}
+
+.stat-row.red .stat-value {
+    color: #ff6b6b;
+}
+
+.no-stats {
+    text-align: center;
+    color: #777;
+    padding: 30px 0;
+}
+
+@media (max-width: 700px) {
+    .scoreboard {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    .score-center {
+        order: -1;
+    }
+    .club-name {
+        font-size: 22px;
+    }
+}

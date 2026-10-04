@@ -1,0 +1,692 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #05070d;
+    color: white;
+
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+        url("Images/dashboard-bg.png") center/cover no-repeat;
+
+    z-index: -1;
+}
+
+.topbar {
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 40px;
+
+    background: rgba(5, 7, 13, 0.95);
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+
+    position: relative;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.logo span {
+    font-weight: normal;
+    opacity: 0.7;
+    margin-left: 4px;
+}
+
+.navigation {
+    display: flex;
+    gap: 28px;
+}
+
+.navigation a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.navigation a:hover,
+.navigation a.active {
+    color: #9d7cff;
+}
+
+.profile {
+    font-size: 14px;
+    color: #ccc;
+}
+
+.lineup-page {
+    width: 96%;
+    max-width: 1500px;
+
+    margin: 8px auto 25px;
+
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: visible;
+}
+
+.page-header {
+    text-align: center;
+
+    margin-bottom: 6px;
+
+    flex-shrink: 0;
+}
+
+.page-header h1 {
+    font-size: 28px;
+    margin-bottom: 2px;
+}
+
+.page-header p {
+    color: #aaa;
+    font-size: 13px;
+}
+
+.lineup-container {
+    display: flex;
+
+    gap: 22px;
+
+    flex: none;
+
+    overflow: visible;
+
+    align-items: flex-start;
+}
+
+.pitch-area {
+    flex: 1.7;
+
+    display: flex;
+    flex-direction: column;
+
+    min-width: 0;
+
+    height: 650px;
+}
+
+.formation-selector {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 10px;
+
+    flex-shrink: 0;
+}
+
+.formation-selector label {
+    font-size: 13px;
+    color: #bbb;
+}
+
+.formation-selector select {
+    background: #1a1f30;
+
+    color: white;
+
+    border: 1px solid #333;
+
+    padding: 8px 14px;
+
+    border-radius: 6px;
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    min-width: 105px;
+}
+
+.formation-selector select:focus {
+    outline: none;
+    border-color: #9d7cff;
+}
+
+.pitch {
+    position: relative;
+
+    width: 100%;
+
+    height: 620px;
+
+    flex: none;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.20),
+            rgba(0,0,0,0.30)
+        ),
+        url("Images/lineups.jpg") center/cover no-repeat;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    overflow: visible;
+}
+
+.slot {
+    position: absolute;
+
+    width: 70px;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    z-index: 5;
+
+    margin-top: -15px;
+}
+
+.slot:hover {
+    transform: scale(1.08);
+}
+
+.slot.swap-selected .slot-card {
+    border-color: #9d7cff;
+
+    box-shadow:
+        0 0 18px rgba(157,124,255,0.95);
+
+    transform: scale(1.08);
+}
+
+.slot.empty .slot-card {
+    background: rgba(0,0,0,0.45);
+
+    border: 2px dashed rgba(255,255,255,0.35);
+}
+
+.slot-card {
+    width: 62px;
+    height: 80px;
+
+    margin: 0 auto;
+
+    border-radius: 8px;
+
+    overflow: hidden;
+
+    background: #111;
+
+    border: 2px solid rgba(255,255,255,0.25);
+
+    position: relative;
+
+    cursor: grab;
+
+    box-shadow:
+        0 4px 10px rgba(0,0,0,0.35);
+}
+
+.slot-card:active {
+    cursor: grabbing;
+}
+
+.slot-card img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.slot-name {
+    font-size: 9px;
+
+    margin-top: 3px;
+
+    white-space: nowrap;
+
+    overflow: visible;
+
+    text-overflow: clip;
+
+    text-shadow: 0 1px 3px black;
+}
+
+.slot-rating {
+    position: absolute;
+
+    top: 2px;
+    right: 2px;
+
+    background: rgba(0,0,0,0.7);
+
+    color: #b39aff;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    padding: 1px 3px;
+
+    border-radius: 3px;
+}
+
+.empty-text {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    height: 100%;
+
+    color: rgba(255,255,255,0.5);
+
+    font-size: 11px;
+
+    font-weight: bold;
+}
+
+.swap-action {
+    position: fixed;
+
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+
+    gap: 2px;
+
+    background: #6c3cff;
+
+    color: white;
+
+    border: 2px solid rgba(255,255,255,0.35);
+
+    border-radius: 50%;
+
+    font-size: 9px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    box-shadow:
+        0 0 15px rgba(108,60,255,0.7);
+
+    transition: 0.2s ease;
+}
+
+.swap-action:hover {
+    background: #835cff;
+
+    transform: scale(1.1);
+
+    box-shadow:
+        0 0 22px rgba(157,124,255,0.9);
+}
+
+.swap-icon {
+    font-size: 20px;
+
+    line-height: 18px;
+}
+
+.swap-action span:last-child {
+    font-size: 8px;
+
+    letter-spacing: 0.5px;
+}
+
+.bench-player.selected {
+    border-color: #9d7cff;
+
+    background: rgba(157,124,255,0.25);
+
+    box-shadow:
+        0 0 12px rgba(157,124,255,0.6);
+}
+
+.bench-area {
+    flex: 0.85;
+
+    height: 620px;
+
+    background: rgba(12, 15, 25, 0.95);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 12px;
+
+    padding: 12px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    overflow: hidden;
+
+    min-width: 0;
+}
+
+.coach-card {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background: rgba(157, 124, 255, 0.12);
+
+    border: 1px solid rgba(157, 124, 255, 0.35);
+
+    border-radius: 10px;
+
+    padding: 8px 6px;
+
+    margin-bottom: 10px;
+
+    width: 85px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    flex-shrink: 0;
+}
+
+.coach-card img {
+    width: 55px;
+    height: 70px;
+
+    border-radius: 7px;
+
+    object-fit: cover;
+
+    object-position: top center;
+
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+.coach-info {
+    text-align: center;
+
+    margin-top: 5px;
+}
+
+.coach-label {
+    font-size: 9px;
+
+    color: #9d7cff;
+
+    letter-spacing: 0.5px;
+
+    display: block;
+}
+
+.coach-info h3 {
+    font-size: 12px;
+
+    font-weight: bold;
+
+    margin-top: 2px;
+}
+
+.available-title {
+    font-size: 13px;
+
+    margin-bottom: 8px;
+
+    color: #b39aff;
+
+    letter-spacing: 1px;
+
+    text-align: center;
+
+    flex-shrink: 0;
+}
+
+.bench-list {
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 8px;
+
+    overflow-y: auto;
+
+    flex: 1;
+
+    min-height: 0;
+
+    padding-right: 4px;
+
+    align-content: start;
+}
+
+.bench-player {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    background: rgba(255,255,255,0.04);
+
+    border: 1px solid rgba(255,255,255,0.1);
+
+    border-radius: 8px;
+
+    padding: 6px 4px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+    text-align: center;
+}
+
+.bench-player:hover {
+    background: rgba(157,124,255,0.18);
+
+    border-color: rgba(157,124,255,0.5);
+
+    transform: translateY(-2px);
+}
+
+.bench-player.used {
+    opacity: 0.35;
+
+    pointer-events: none;
+}
+
+.bench-player img {
+    width: 48px;
+    height: 60px;
+
+    border-radius: 6px;
+
+    object-fit: cover;
+
+    object-position: top center;
+
+    margin-bottom: 4px;
+}
+
+.bench-info {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 1px;
+}
+
+.bench-name {
+    font-size: 10px;
+
+    font-weight: bold;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    max-width: 65px;
+}
+
+.bench-meta {
+    font-size: 9px;
+
+    color: #999;
+}
+
+.back-section {
+    text-align: center;
+
+    margin-top: 8px;
+
+    padding-bottom: 10px;
+}
+
+.back-section a {
+    color: #b39aff;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    font-size: 13px;
+}
+
+.back-section a:hover {
+    color: white;
+}
+
+.bench-list::-webkit-scrollbar {
+    width: 4px;
+}
+
+.bench-list::-webkit-scrollbar-thumb {
+    background: #555;
+
+    border-radius: 10px;
+}
+
+.bench-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+@media (max-width: 1100px) {
+
+    body {
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    .lineup-page {
+        height: auto;
+    }
+
+    .lineup-container {
+        flex-direction: column;
+    }
+
+    .pitch-area {
+        width: 100%;
+        height: 650px;
+    }
+
+    .pitch {
+        height: 620px;
+    }
+
+    .bench-area {
+        width: 100%;
+        height: 500px;
+    }
+}
+
+.lineup-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-left: 8px;
+}
+
+.lineup-buttons button {
+    height: 34px;
+    padding: 0 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#saveLineupButton {
+    background: #6c3cff;
+    color: white;
+    border: 1px solid #6c3cff;
+}
+
+#saveLineupButton:hover {
+    background: #835cff;
+    border-color: #835cff;
+    transform: translateY(-1px);
+}
+
+#defaultButton {
+    background: rgba(255,255,255,0.08);
+    color: #aaa;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+#defaultButton.changed {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border-color: rgba(255,255,255,0.35);
+}
+
+#defaultButton.changed:hover {
+    background: rgba(255,255,255,0.2);
+    border-color: #9d7cff;
+    color: white;
+    transform: translateY(-1px);
+}
+
+#defaultButton:disabled {
+    opacity: 0.35;
+    cursor: default;
+    transform: none;
+}

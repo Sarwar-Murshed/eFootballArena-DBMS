@@ -1,0 +1,128 @@
+.form-box {
+    background: rgba(12,15,25,0.95);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.form-box h2 {
+    margin-bottom: 18px;
+    font-size: 18px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 13px;
+    color: #aaa;
+}
+
+.form-group input,
+.form-group select {
+    background: #10101c;
+    border: 1px solid #292943;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #6c3cff;
+}
+
+.btn-primary {
+    background: #6c3cff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background: #844fff;
+}
+
+.message {
+    background: rgba(97,226,148,0.15);
+    color: #61e294;
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.update-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.update-form input,
+.update-form select {
+    background: #10101c;
+    border: 1px solid #292943;
+    color: white;
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.update-form input {
+    width: 90px;
+}
+
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background: #3a3a5c;
+    color: white;
+}
+
+.btn-delete {
+    background: #5c2a2a;
+    color: #ff6b6b;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+.status-live {
+    color: #61e294;
+    font-weight: bold;
+}
+
+.status-sold {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.status-upcoming {
+    color: #b39aff;
+    font-weight: bold;
+}
+
+.status-unsold {
+    color: #aaa;
+}
